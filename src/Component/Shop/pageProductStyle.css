@@ -1,0 +1,31 @@
+.productCard {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 6.3rem;
+  margin-bottom: 6.3rem;
+  height: 25rem;
+  width: 60%;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.productCard ul {
+  list-style: none;
+}
+.productCard ul li h1 {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  padding: 3rem;
+  text-align: center;
+  margin-left: 20%;
+}
+.productCard ul li p {
+  margin-left: 56%;
+}
+.buyBtn {
+  margin-top: 2rem;
+  margin-left: 57.5%;
+  width: 5rem;
+}
+.productquant {
+  display: flex;
+}

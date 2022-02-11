@@ -1,0 +1,26 @@
+.login {
+  height: 100vh;
+  display: flex;
+}
+@media only screen and (max-width: 300px) {
+  .login {
+    height: 104vh;
+    width: 275px;
+    background-color: lightgreen;
+  }
+}
+.form {
+  margin: auto;
+  margin-left: auto;
+  margin-right: auto;
+  width: 27.5rem;
+  height: 16rem;
+  border-radius: 10px;
+}
+.col {
+  margin: auto;
+  margin-left: 3.5%;
+}
+.container {
+  display: flex;
+}
