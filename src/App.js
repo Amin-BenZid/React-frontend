@@ -32,29 +32,31 @@ function App() {
   let navigate = useNavigate();
 
   // userId from token
-  if (token !== null) {
+
+  useEffect(() => {
+    if (token !== null) {
+      ifloged();
+    }
+  }, []);
+  const ifloged = async () => {
     var decoded = jwt_decode(token);
-    useEffect(async () => {
-      let id = { id: decoded.user_ID };
-      await axios
-        .post("https://gomycodetest.herokuapp.com/api/login/stay", id)
-        .then((response) => {
-          dispatch(loginSuccess(response.data.user));
-          navigate("/", { replace: true });
-        })
-        .catch((error) => {
-          if (error.response) {
-            console.log(error.response.data);
-          } else if (error.request) {
-            console.log(error.request);
-          } else {
-            console.log("Error", error.message);
-          }
-        });
-    }, []);
-  } else {
-    return null;
-  }
+    let id = { id: decoded.user_ID };
+    await axios
+      .post("https://gomycodetest.herokuapp.com/api/login/stay", id)
+      .then((response) => {
+        dispatch(loginSuccess(response.data.user));
+        navigate("/", { replace: true });
+      })
+      .catch((error) => {
+        if (error.response) {
+          console.log(error.response.data);
+        } else if (error.request) {
+          console.log(error.request);
+        } else {
+          console.log("Error", error.message);
+        }
+      });
+  };
   return (
     <div>
       {isAuth ? (
