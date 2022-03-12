@@ -18,6 +18,7 @@ import { loginSuccess } from "./Component/User/loginSlice";
 function App() {
   const { isAuth } = useSelector((state) => state.login);
   const token = localStorage.getItem("authorization");
+  let decoded = {};
 
   axios.interceptors.request.use(
     (config) => {
@@ -39,8 +40,8 @@ function App() {
     }
   }, []);
   const ifloged = async () => {
-    var decoded = jwt_decode(token);
     let id = { id: decoded.user_ID };
+    decoded = jwt_decode(token);
     await axios
       .post("https://gomycodetest.herokuapp.com/api/login/stay", id)
       .then((response) => {
