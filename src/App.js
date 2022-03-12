@@ -39,7 +39,7 @@ function App() {
     useEffect(async () => {
       let id = { id: decoded.user_ID };
       await axios
-        .post("http://localhost:5000/api/login/stay", id)
+        .post("https://gomycodetest.herokuapp.com/api/login/stay", id)
         .then((response) => {
           dispatch(loginSuccess(response.data.user));
           navigate("/", { replace: true });

@@ -35,7 +35,7 @@ const AddProduct = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     await axios
-      .post("http://localhost:5000/api/products/add", newProductData)
+      .post("https://gomycodetest.herokuapp.com/api/products/add", newProductData)
       .then((response) => {
         console.log("Product added successfully", response);
         navigate("/", { replace: true });
@@ -56,15 +56,7 @@ const AddProduct = () => {
       <NavbarUser />
       <Container>
         <Row>
-          <Col
-            className="mt-5 col"
-            xxl={11}
-            xs={11}
-            xl={11}
-            sm={11}
-            lg={11}
-            md={11}
-          >
+          <Col className="mt-5 col" xxl={11} xs={11} xl={11} sm={11} lg={11} md={11}>
             <Form>
               <Form.Group className="mb-3" controlId="formBasicProductName">
                 <Form.Label>Product Name</Form.Label>
@@ -95,11 +87,7 @@ const AddProduct = () => {
 
               <Form.Group className="mb-3" controlId="formBasicPrice">
                 <Form.Label>Price</Form.Label>
-                <Form.Control
-                  type="number"
-                  placeholder=" Enter Price DT"
-                  onChange={(e) => setPrice(e.target.value)}
-                />
+                <Form.Control type="number" placeholder=" Enter Price DT" onChange={(e) => setPrice(e.target.value)} />
               </Form.Group>
 
               <Button variant="success" type="submit" onClick={handleSubmit}>

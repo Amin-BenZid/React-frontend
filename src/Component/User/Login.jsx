@@ -37,7 +37,7 @@ function Login() {
     e.preventDefault();
     const authorization = "authorization";
     await axios
-      .post("http://localhost:5000/api/login", loginData)
+      .post("https://gomycodetest.herokuapp.com/api/login", loginData)
       .then((response) => {
         localStorage.setItem(authorization, response.data.token);
         dispatch(loginSuccess(response.data.user));
@@ -60,15 +60,7 @@ function Login() {
       <div className="login">
         <Container className="container" style={containerStyle}>
           <Row className="form">
-            <Col
-              className="mt-5 col"
-              xxl={11}
-              xs={11}
-              xl={11}
-              sm={11}
-              lg={11}
-              md={11}
-            >
+            <Col className="mt-5 col" xxl={11} xs={11} xl={11} sm={11} lg={11} md={11}>
               {errors !== undefined ? (
                 errors.err === undefined ? (
                   <Alert
@@ -97,32 +89,16 @@ function Login() {
               <Form>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                   <Form.Label style={lableStyle}>Email </Form.Label>
-                  <Form.Control
-                    type="email"
-                    placeholder="Enter email"
-                    onChange={(e) => setEmail(e.target.value)}
-                  />
-                  <Form.Text className="text-muted">
-                    We'll never share your email with anyone else.
-                  </Form.Text>
+                  <Form.Control type="email" placeholder="Enter email" onChange={(e) => setEmail(e.target.value)} />
+                  <Form.Text className="text-muted">We'll never share your email with anyone else.</Form.Text>
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                   <Form.Label style={lableStyle}>Password</Form.Label>
-                  <Form.Control
-                    type="password"
-                    placeholder="Password"
-                    onChange={(e) => setPassword(e.target.value)}
-                  />
+                  <Form.Control type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
                 </Form.Group>
 
-                <Button
-                  style={btnStyle}
-                  className="mt-5"
-                  variant="success"
-                  type="submit"
-                  onClick={handleSubmit}
-                >
+                <Button style={btnStyle} className="mt-5" variant="success" type="submit" onClick={handleSubmit}>
                   Submit
                 </Button>
               </Form>

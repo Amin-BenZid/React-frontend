@@ -21,7 +21,7 @@ const ProductPage = () => {
   const [number, setNumber] = useState(0);
   useEffect(async () => {
     await axios
-      .get("http://localhost:5000/api/products/find/" + id)
+      .get("https://gomycodetest.herokuapp.com/api/products/find/" + id)
       .then((response) => {
         setProduct(response.data.result);
       })
@@ -32,7 +32,7 @@ const ProductPage = () => {
   const handleDelete = async (e) => {
     e.preventDefault();
     await axios
-      .delete("http://localhost:5000/api/products/delete/" + id)
+      .delete("https://gomycodetest.herokuapp.com/api/products/delete/" + id)
       .then(() => {
         navigate("/", { replace: true });
       })
@@ -53,7 +53,7 @@ const ProductPage = () => {
     e.preventDefault();
     if (number > 0) {
       await axios
-        .post("http://localhost:5000/api/orders/" + id, quantitie)
+        .post("https://gomycodetest.herokuapp.com/api/orders/" + id, quantitie)
         .then((res) => {
           console.log(res);
         })
@@ -94,13 +94,8 @@ const ProductPage = () => {
             </Link>
           ) : null}
 
-          {product.vendorID === decoded.user_ID ||
-          (decoded.userIsAdmin === true && isAuth) ? (
-            <button
-              onClick={handleDelete}
-              className="btn"
-              style={{ marginLeft: "0.4rem" }}
-            >
+          {product.vendorID === decoded.user_ID || (decoded.userIsAdmin === true && isAuth) ? (
+            <button onClick={handleDelete} className="btn" style={{ marginLeft: "0.4rem" }}>
               <FiDelete />
             </button>
           ) : null}

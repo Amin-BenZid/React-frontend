@@ -35,7 +35,7 @@ const EditProduct = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     await axios
-      .patch("http://localhost:5000/api/products/edit/" + id, editedProductData)
+      .patch("https://gomycodetest.herokuapp.com/api/products/edit/" + id, editedProductData)
       .then((response) => {
         console.log("Product Updated successfully", response);
         navigate("/", { replace: true });
@@ -56,15 +56,7 @@ const EditProduct = () => {
       <NavbarUser />
       <Container>
         <Row>
-          <Col
-            className="mt-5 col"
-            xxl={11}
-            xs={11}
-            xl={11}
-            sm={11}
-            lg={11}
-            md={11}
-          >
+          <Col className="mt-5 col" xxl={11} xs={11} xl={11} sm={11} lg={11} md={11}>
             <Form>
               <Form.Group className="mb-3" controlId="formBasicNewProductName">
                 <Form.Label> New Product Name</Form.Label>
@@ -88,11 +80,7 @@ const EditProduct = () => {
                   display: "flex",
                 }}
               >
-                <Form.Group
-                  style={{ width: "50%" }}
-                  className="mb-3"
-                  controlId="formBasicNewQuantitie"
-                >
+                <Form.Group style={{ width: "50%" }} className="mb-3" controlId="formBasicNewQuantitie">
                   <Form.Label> New Quantitie</Form.Label>
                   <Form.Control
                     type="number"
@@ -101,11 +89,7 @@ const EditProduct = () => {
                   />
                 </Form.Group>
 
-                <Form.Group
-                  style={{ width: "50%" }}
-                  className="mb-3"
-                  controlId="formBasicNewPrice"
-                >
+                <Form.Group style={{ width: "50%" }} className="mb-3" controlId="formBasicNewPrice">
                   <Form.Label>New Price</Form.Label>
                   <Form.Control
                     type="number"

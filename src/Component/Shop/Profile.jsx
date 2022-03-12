@@ -13,7 +13,7 @@ const Home = () => {
   const id = location.pathname.split("/")[2];
   useEffect(async () => {
     await axios
-      .get("http://localhost:5000/api/login/" + id)
+      .get("https://gomycodetest.herokuapp.com/api/login/" + id)
       .then((response) => {
         setUser(response.data);
       })

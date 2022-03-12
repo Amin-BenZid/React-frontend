@@ -29,7 +29,7 @@ const Register = () => {
     e.preventDefault();
     if (password.length > 8)
       await axios
-        .post("http://localhost:5000/api/register", newUser)
+        .post("https://gomycodetest.herokuapp.com/api/register", newUser)
         .then((response) => {
           console.log("user added successfully", response);
           navigate("/login", { replace: true });
@@ -43,10 +43,7 @@ const Register = () => {
             setErrors("Error", error.message);
           }
         });
-    if (password.length < 8)
-      return setErrors(
-        "Youe can't submite empty form or password less then 8 char"
-      );
+    if (password.length < 8) return setErrors("Youe can't submite empty form or password less then 8 char");
   };
   console.log(errors);
   return (
@@ -54,15 +51,7 @@ const Register = () => {
       <NavBar />
       <Container className="container" style={containerStyle}>
         <Row className="form">
-          <Col
-            className="mt-5 col"
-            xxl={11}
-            xs={11}
-            xl={11}
-            sm={11}
-            lg={11}
-            md={11}
-          >
+          <Col className="mt-5 col" xxl={11} xs={11} xl={11} sm={11} lg={11} md={11}>
             {errors !== undefined ? (
               errors.err === undefined ? (
                 <Alert
@@ -91,20 +80,12 @@ const Register = () => {
             <Form>
               <Form.Group className="mb-3" controlId="formBasicUserName">
                 <Form.Label style={lableStyle}>Username</Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder="Enter username"
-                  onChange={(e) => setName(e.target.value)}
-                />
+                <Form.Control type="text" placeholder="Enter username" onChange={(e) => setName(e.target.value)} />
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label style={lableStyle}>Email</Form.Label>
-                <Form.Control
-                  type="email"
-                  placeholder="Enter email"
-                  onChange={(e) => setEmail(e.target.value)}
-                />
+                <Form.Control type="email" placeholder="Enter email" onChange={(e) => setEmail(e.target.value)} />
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -126,12 +107,7 @@ const Register = () => {
                 <option value="Vendor">Vendor</option>
               </Form.Select>
 
-              <Button
-                style={btnStyle}
-                variant="success"
-                type="submit"
-                onClick={handleSubmit}
-              >
+              <Button style={btnStyle} variant="success" type="submit" onClick={handleSubmit}>
                 Sign Up
               </Button>
             </Form>
