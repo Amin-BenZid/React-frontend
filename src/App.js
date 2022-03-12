@@ -17,7 +17,6 @@ import { loginSuccess } from "./Component/User/loginSlice";
 
 function App() {
   const { isAuth } = useSelector((state) => state.login);
-  var key = localStorage.getItem("authorization");
   const token = localStorage.getItem("authorization");
 
   axios.interceptors.request.use(
@@ -32,9 +31,6 @@ function App() {
   const dispatch = useDispatch();
   let navigate = useNavigate();
 
-  if (key == null) {
-    return null;
-  }
   // userId from token
   var decoded = jwt_decode(token);
   useEffect(async () => {
