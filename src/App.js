@@ -52,6 +52,8 @@ function App() {
           }
         });
     }, []);
+  } else {
+    return null;
   }
   return (
     <div>
