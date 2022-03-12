@@ -32,29 +32,29 @@ function App() {
   const dispatch = useDispatch();
   let navigate = useNavigate();
 
-  if (key !== null) {
-    // userId from token
-    const token = localStorage.getItem("authorization");
-    var decoded = jwt_decode(token);
-    useEffect(async () => {
-      let id = { id: decoded.user_ID };
-      await axios
-        .post("https://gomycodetest.herokuapp.com/api/login/stay", id)
-        .then((response) => {
-          dispatch(loginSuccess(response.data.user));
-          navigate("/", { replace: true });
-        })
-        .catch((error) => {
-          if (error.response) {
-            console.log(error.response.data);
-          } else if (error.request) {
-            console.log(error.request);
-          } else {
-            console.log("Error", error.message);
-          }
-        });
-    }, []);
+  if (key == null) {
+    return null;
   }
+  // userId from token
+  var decoded = jwt_decode(token);
+  useEffect(async () => {
+    let id = { id: decoded.user_ID };
+    await axios
+      .post("https://gomycodetest.herokuapp.com/api/login/stay", id)
+      .then((response) => {
+        dispatch(loginSuccess(response.data.user));
+        navigate("/", { replace: true });
+      })
+      .catch((error) => {
+        if (error.response) {
+          console.log(error.response.data);
+        } else if (error.request) {
+          console.log(error.request);
+        } else {
+          console.log("Error", error.message);
+        }
+      });
+  }, []);
   return (
     <div>
       {isAuth ? (
