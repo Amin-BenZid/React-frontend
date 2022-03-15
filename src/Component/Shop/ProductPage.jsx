@@ -78,7 +78,7 @@ const ProductPage = () => {
   };
   const { isAuth } = useSelector((state) => state.login);
 
-  const token = localStorage.getItem("authorization");
+  const token = localStorage.getItem("token");
   var decoded = jwt_decode(token);
 
   return (
