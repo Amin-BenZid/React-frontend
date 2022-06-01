@@ -21,6 +21,7 @@ const AddProduct = () => {
     quantitie,
     price,
   };
+  console.log(newProductData);
   const token = localStorage.getItem("authorization");
   axios.interceptors.request.use(
     (config) => {
@@ -35,7 +36,7 @@ const AddProduct = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     await axios
-      .post("https://gomycodetest.herokuapp.com/api/products/add", newProductData)
+      .post("https://gmcprojectreact.herokuapp.com/api/products/add", newProductData)
       .then((response) => {
         console.log("Product added successfully", response);
         navigate("/", { replace: true });

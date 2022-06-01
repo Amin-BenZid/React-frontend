@@ -35,7 +35,7 @@ const EditProduct = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     await axios
-      .patch("https://gomycodetest.herokuapp.com/api/products/edit/" + id, editedProductData)
+      .patch("https://gmcprojectreact.herokuapp.com/api/products/edit/" + id, editedProductData)
       .then((response) => {
         console.log("Product Updated successfully", response);
         navigate("/", { replace: true });

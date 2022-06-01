@@ -41,7 +41,7 @@ const AdminPage = () => {
   }, []);
   useEffect(async () => {
     await axios
-      .get("http://localhost:5000/api/admin/orders")
+      .get("https://gmcprojectreact.herokuapp.com/api/admin/orders")
       .then((response) => {
         setItems(response.data.allOroders);
       })
@@ -57,7 +57,7 @@ const AdminPage = () => {
   }, []);
   useEffect(async () => {
     await axios
-      .get("http://localhost:5000/api/admin/users")
+      .get("https://gmcprojectreact.herokuapp.com/api/admin/users")
       .then((response) => {
         setUsers(response.data.allUsers);
       })
@@ -118,11 +118,7 @@ const AdminPage = () => {
           </tbody>
         </Table>
       </div>
-      <Button
-        variant="info"
-        style={{ margin: "0.5rem", width: "6rem" }}
-        onClick={handleOrders}
-      >
+      <Button variant="info" style={{ margin: "0.5rem", width: "6rem" }} onClick={handleOrders}>
         Show All Orders
       </Button>
       <div style={showOrders}>
@@ -145,11 +141,7 @@ const AdminPage = () => {
           : null}
       </div>
       <br />
-      <Button
-        variant="info"
-        style={{ margin: "0.5rem", width: "6rem" }}
-        onClick={handleUsers}
-      >
+      <Button variant="info" style={{ margin: "0.5rem", width: "6rem" }} onClick={handleUsers}>
         Show All Users
       </Button>
       <div style={showUsers}>

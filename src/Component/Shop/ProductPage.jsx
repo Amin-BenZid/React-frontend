@@ -21,7 +21,7 @@ const ProductPage = () => {
   const [number, setNumber] = useState(0);
   useEffect(async () => {
     await axios
-      .get("https://gomycodetest.herokuapp.com/api/products/find/" + id)
+      .get("https://gmcprojectreact.herokuapp.com/api/products/find/" + id)
       .then((response) => {
         setProduct(response.data.result);
       })
@@ -32,7 +32,7 @@ const ProductPage = () => {
   const handleDelete = async (e) => {
     e.preventDefault();
     await axios
-      .delete("https://gomycodetest.herokuapp.com/api/products/delete/" + id)
+      .delete("https://gmcprojectreact.herokuapp.com/api/products/delete/" + id)
       .then(() => {
         navigate("/", { replace: true });
       })
@@ -53,7 +53,7 @@ const ProductPage = () => {
     e.preventDefault();
     if (number > 0) {
       await axios
-        .post("https://gomycodetest.herokuapp.com/api/orders/" + id, quantitie)
+        .post("https://gmcprojectreact.herokuapp.com/api/orders" + id, quantitie)
         .then((res) => {
           console.log(res);
         })
@@ -78,7 +78,7 @@ const ProductPage = () => {
   };
   const { isAuth } = useSelector((state) => state.login);
 
-  const token = localStorage.getItem("token");
+  const token = localStorage.getItem("authorization");
   var decoded = jwt_decode(token);
 
   return (

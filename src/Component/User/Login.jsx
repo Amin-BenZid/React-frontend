@@ -37,9 +37,10 @@ function Login() {
     e.preventDefault();
     const authorization = "authorization";
     await axios
-      .post("https://gomycodetest.herokuapp.com/api/login", loginData)
+      .post("https://gmcprojectreact.herokuapp.com/api/login", loginData)
       .then((response) => {
         localStorage.setItem(authorization, response.data.token);
+        console.log(response.data.user);
         dispatch(loginSuccess(response.data.user));
         navigate("/", { replace: true });
       })

@@ -18,7 +18,7 @@ const Orders = (props) => {
   const handleSetAdmin = async (e) => {
     e.preventDefault();
     await axios
-      .patch(`http://localhost:5000/api/admin/user/role/${id}`)
+      .patch(`https://gmcprojectreact.herokuapp.com/api/admin/user/role/${id}`)
       .then((response) => {
         alert(`${id} is now an admin`);
       })
@@ -35,7 +35,7 @@ const Orders = (props) => {
   const handleremAdmin = async (e) => {
     e.preventDefault();
     await axios
-      .patch(`http://localhost:5000/api/admin/user/remrole/${id}`)
+      .patch(`https://gmcprojectreact.herokuapp.com/api/admin/user/remrole/${id}`)
       .then((response) => {
         alert(`${id} is no longer an admin`);
       })
@@ -52,7 +52,7 @@ const Orders = (props) => {
   const handleBan = async (e) => {
     e.preventDefault();
     await axios
-      .patch(`http://localhost:5000/api/admin/user/ban/${id}`)
+      .patch(`https://gmcprojectreact.herokuapp.com/api/admin/user/ban/${id}`)
       .then((response) => {
         alert(`${id} is Perma Baned`);
       })
@@ -72,25 +72,13 @@ const Orders = (props) => {
         <tbody>
           <tr>
             <td style={{ width: "30rem" }}>
-              <Button
-                onClick={handleSetAdmin}
-                variant="warning"
-                style={{ marginRight: "1rem", width: "6rem" }}
-              >
+              <Button onClick={handleSetAdmin} variant="warning" style={{ marginRight: "1rem", width: "6rem" }}>
                 Set Admin
               </Button>
-              <Button
-                onClick={handleremAdmin}
-                variant="warning"
-                style={{ marginRight: "1rem", width: "6rem" }}
-              >
+              <Button onClick={handleremAdmin} variant="warning" style={{ marginRight: "1rem", width: "6rem" }}>
                 Remove Admin
               </Button>
-              <Button
-                style={{ marginRight: "1rem", width: "4rem" }}
-                onClick={handleBan}
-                variant="danger"
-              >
+              <Button style={{ marginRight: "1rem", width: "4rem" }} onClick={handleBan} variant="danger">
                 Ban User
               </Button>
 

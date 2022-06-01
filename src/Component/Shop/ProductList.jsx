@@ -18,7 +18,7 @@ const ProductList = () => {
 
   useEffect(async () => {
     await axios
-      .get("https://gomycodetest.herokuapp.com/api/products")
+      .get("https://gmcprojectreact.herokuapp.com/api/products")
       .then((response) => {
         setProduct(response.data.result);
       })

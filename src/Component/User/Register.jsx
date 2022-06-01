@@ -29,7 +29,7 @@ const Register = () => {
     e.preventDefault();
     if (password.length > 8)
       await axios
-        .post("https://gomycodetest.herokuapp.com/api/register", newUser)
+        .post("https://gmcprojectreact.herokuapp.com/api/register", newUser)
         .then((response) => {
           console.log("user added successfully", response);
           navigate("/login", { replace: true });

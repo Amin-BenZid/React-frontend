@@ -17,8 +17,8 @@ import { loginSuccess } from "./Component/User/loginSlice";
 
 function App() {
   const { isAuth } = useSelector((state) => state.login);
+  var key = localStorage.getItem("authorization");
   const token = localStorage.getItem("authorization");
-  let decoded = {};
 
   axios.interceptors.request.use(
     (config) => {
@@ -32,32 +32,12 @@ function App() {
   const dispatch = useDispatch();
   let navigate = useNavigate();
 
-  // userId from token
-
-  useEffect(() => {
-    if (token !== null) {
-      ifloged();
-    }
-  }, []);
-  const ifloged = async () => {
-    let id = { id: decoded.user_ID };
-    decoded = jwt_decode(token);
-    await axios
-      .post("https://gomycodetest.herokuapp.com/api/login/stay", id)
-      .then((response) => {
-        dispatch(loginSuccess(response.data.user));
-        navigate("/", { replace: true });
-      })
-      .catch((error) => {
-        if (error.response) {
-          console.log(error.response.data);
-        } else if (error.request) {
-          console.log(error.request);
-        } else {
-          console.log("Error", error.message);
-        }
-      });
-  };
+  if (key !== null) {
+    // userId from token
+    const token = localStorage.getItem("authorization");
+    var decoded = jwt_decode(token);
+    const dispatch = useDispatch();
+  }
   return (
     <div>
       {isAuth ? (
